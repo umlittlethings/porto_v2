@@ -20,14 +20,6 @@ function Landing(){
         alt="Landing Page Background"
       />
 
-      <div className="absolute inset-0 z-20 flex items-center justify-center">
-        <img
-          className="object-contain sm:pt-123 pb-40 sm:pb-0"
-          src="/landing/chris.svg"
-          alt="Chris_Pict"
-        />
-      </div>
-
       <div className='absolute inset-0 z-20 sm:pt-170 pt-130 text-white sm:pl-300 sm:pr-15 pr-7 pl-50 text-right text-[9px] sm:text-[16px]'>
         <h1>
           I write code like poetry and debug like a detective — all to craft digital stuff that just feels right.
