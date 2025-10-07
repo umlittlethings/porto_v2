@@ -11,13 +11,20 @@ function Expertise() {
     "expert/Vector.svg",
   ];
 
-  const cardContent = [
-    `I love building websites that look great and work even better! Turning ideas into smooth, user-friendly experiences is what I enjoy most. Still brushing up on my backend skills (we’re getting there 😅), but front-end is where I’m most at home.
-    This is my main focus: creating clean, responsive interfaces that feel intuitive and actually help users get things done. Whether it’s a landing page, a web app, or something experimental, I aim to make it both usable and visually solid.`,
-    `I enjoy designing digital experiences that connect users with products seamlessly. My focus lies in delivering user-centered interfaces backed by strong usability and consistency. Every project teaches me how to make design serve functionality better.`,
-    `I’m also diving deeper into modern front-end tools and reactive patterns. My goal is to combine performance, accessibility, and aesthetic balance to create experiences that truly stand out and remain maintainable.`,
+  // 🔹 Title unik per card kanan
+  const titleImages = [
+    "expert/expert details/titleft.svg",
+    "expert/expert details/titlemd.svg",
+    "expert/expert details/titlepd.svg",
   ];
 
+  const cardContent = [
+    `I love building websites that look great and work even better! Turning ideas into smooth, user-friendly experiences is what I enjoy most. Still brushing up on my backend skills (we’re getting there), but front-end is where I’m most at home.
+    This is my main focus: creating clean, responsive interfaces that feel intuitive and actually help users get things done. Whether it’s a landing page, a web app, or something experimental, I aim to make it both usable and visually solid.`,
+    'I love crafting mobile apps that feel intuitive and responsive across different devices. For me, it’s all about turning complex interactions into simple, meaningful experiences — whether it’s managing data, integrating APIs, or polishing animations that make an app come alive. I focus on building clean, maintainable codebases while ensuring the design feels native to the platform, so users can just dive in and use it effortlessly.',
+    'I’m passionate about designing products that balance aesthetics with functionality. My process always starts with understanding user needs — translating insights into wireframes, prototypes, and interfaces that make sense and feel natural. I enjoy shaping systems that not only look cohesive but also tell a clear story through design. Every detail matters, from visual hierarchy to micro-interactions that enhance the overall experience.'  ];
+
+  // 🔹 Perhitungan elemen tengah viewport
   useEffect(() => {
     const handleScroll = () => {
       const viewportCenter = window.innerHeight / 2;
@@ -39,15 +46,15 @@ function Expertise() {
       setActiveIndex(closestIndex);
     };
 
-    handleScroll(); // jalankan sekali saat load
+    handleScroll(); // Jalankan sekali saat load
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (
     <div>
-      <div className="flex gap-8 px-50 py-10">
-        {/* KIRI */}
+      <div className="flex gap-8 px-50 py-10 pt-20">
+        {/* 🔹 KIRI: Box Highlight */}
         <div className="flex-shrink-0 sticky top-20 self-start flex flex-col items-center space-y-6 pr-20">
           {boxImages.map((src, i) => (
             <motion.img
@@ -68,7 +75,7 @@ function Expertise() {
           ))}
         </div>
 
-        {/* KANAN */}
+        {/* 🔹 KANAN: Card Section */}
         <div className="flex-1 space-y-10">
           {cardContent.map((text, i) => (
             <motion.div
@@ -82,23 +89,28 @@ function Expertise() {
               }
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="relative px-4 py-5 border-2 overflow-hidden max-w-130">
+              <div className="relative px-4 py-5 border-2 overflow-hidden max-w-130 rounded-2xl backdrop-blur-sm shadow-lg">
+                {/* 🔸 Title unik */}
                 <img
                   className="h-auto object-contain relative z-10"
-                  src="expert/expert details/titleft.svg"
-                  alt=""
+                  src={titleImages[i]}
+                  alt={`title-${i}`}
                 />
-                <div className="absolute inset-0 -z-10 pointer-events-none">
+
+                {/* 🔸 Background pattern halus */}
+                <div className="absolute inset-0 -z-10 pointer-events-none opacity-5">
                   {[...Array(4)].map((_, j) => (
                     <img
                       key={j}
-                      className="opacity-5 h-auto object-contain"
-                      src="expert/expert details/titleft.svg"
+                      className="h-auto object-contain"
+                      src={titleImages[i]}
                       alt=""
                     />
                   ))}
                 </div>
-                <p className="relative z-20 mt-9 text-xl text-justify max-w-130 font-Jakarta-Medium">
+
+                {/* 🔸 Text konten */}
+                <p className="relative z-20 mt-9 text-xl text-justify max-w-130 font-Jakarta-Medium leading-relaxed ">
                   {text}
                 </p>
               </div>
