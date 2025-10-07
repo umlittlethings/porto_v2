@@ -1,0 +1,16 @@
+@font-face {
+    font-family: Jakarta-Regular;
+    src: url("assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Regular.ttf");
+}
+
+@font-face {
+    font-family: Jakarta-Medium;
+    src: url("assets/fonts/Plus_Jakarta_Sans/static/PlusJakartaSans-Medium.ttf");
+}
+
+@import "tailwindcss";
+
+@theme {
+ --font-Jakarta-Regular: Jakarta-Regular, sans-serif;
+ --font-Jakarta-Medium: Jakarta-Regular, sans-serif;
+}
