@@ -1,4 +1,5 @@
 import React from 'react'
+import { motion } from 'framer-motion'
 import SeeMoreButton from '../../SeeMoreButton'
 
 function handleClick() {
@@ -24,6 +25,19 @@ function Landing(){
         <h1>
           I write code like poetry and debug like a detective — all to craft digital stuff that just feels right.
         </h1>
+      </div>
+      <div className='absolute inset-0 z-10 flex items-center justify-center pt-130'>
+        <motion.img 
+          src="/landing/main.svg" 
+          alt="me" 
+          className="rounded-full w-100 h-100 object-cover shadow-2xl"
+          initial={{ opacity: 0, scale: 0.8, y: 30 }}
+          animate={{ opacity: 1, scale: 1, y: 0 }}
+          transition={{
+            duration: 1.2,
+            ease: "easeOut"
+          }}
+        />
       </div>
 
       <div className='absolute inset-0 z-20 sm:pt-150 pt-130 text-white sm:pl-15 pl-7 sm:pr-300 pr-50 text-[9px] sm:text-[16px]'>
