@@ -4,6 +4,7 @@ export const worksData = [
     title: "Quizcypher: a simple Quiz App",
     date: "May 2025",
     desc: "A quiz application built with React and Open Trivia DB API, designed with clean UI and fast performance.",
+    mainImage: "works/quizcypher-main.svg",
     link: "/projects/quizcypher",
     techStack: [
       "works/stack/react.svg",
@@ -16,6 +17,7 @@ export const worksData = [
     title: "TemuDataku: a SaaS Data Catalog Platform",
     date: "June 2025",
     desc: "A full-stack web app to organize and explore learning materials by category using Node.js and PostgreSQL.",
+    mainImage: "works/temudataku-main.svg",
     link: "/projects/temudataku",
     techStack: [
       "works/stack/react.svg",
@@ -28,6 +30,7 @@ export const worksData = [
     title: "SetaraApp: Course Submission Tracker",
     date: "May 2025",
     desc: "A WearOS-integrated mobile app that tracks course submissions and synchronizes with Supabase backend.",
+    mainImage: "works/setaraapp-main.svg",
     link: "/projects/setaraapp",
     techStack: [
       "works/stack/kotlin.svg",
@@ -40,11 +43,64 @@ export const worksData = [
     title: "HealthDetectWear: WearOS Heart Rate Monitor",
     date: "July 2025",
     desc: "A WearOS app developed using Health Services API to monitor heart rate with both imperative and reactive approaches.",
+    mainImage: "works/healthdetectwear-main.svg",
     link: "/projects/healthdetectwear",
     techStack: [
       "works/stack/kotlin.svg",
       "works/stack/wearos.svg",
       "works/stack/androidstudio.svg",
+    ],
+  },
+  {
+    id: "05",
+    title: "EcoTracker: Environmental Impact Monitor",
+    date: "August 2025",
+    desc: "A mobile application that helps users track their carbon footprint and suggests eco-friendly alternatives for daily activities.",
+    mainImage: "works/ecotracker-main.svg",
+    link: "/projects/ecotracker",
+    techStack: [
+      "works/stack/react.svg",
+      "works/stack/js.svg",
+      "works/stack/firebase.svg",
+    ],
+  },
+  {
+    id: "06",
+    title: "MusicHub: Social Music Streaming Platform",
+    date: "September 2025",
+    desc: "A social platform where users can discover, share, and collaborate on music playlists with real-time chat integration.",
+    mainImage: "works/musichub-main.svg",
+    link: "/projects/musichub",
+    techStack: [
+      "works/stack/react.svg",
+      "works/stack/node.svg",
+      "works/stack/postgres.svg",
+    ],
+  },
+  {
+    id: "07",
+    title: "TaskFlow: Team Productivity Manager",
+    date: "October 2025",
+    desc: "A collaborative task management tool with real-time updates, team communication features, and progress tracking dashboard.",
+    mainImage: "works/taskflow-main.svg",
+    link: "/projects/taskflow",
+    techStack: [
+      "works/stack/react.svg",
+      "works/stack/js.svg",
+      "works/stack/tailwind.svg",
+    ],
+  },
+  {
+    id: "08",
+    title: "HealthSync: Medical Records Integration",
+    date: "November 2025",
+    desc: "A secure platform that aggregates medical records from multiple healthcare providers and provides personalized health insights.",
+    mainImage: "works/healthsync-main.svg",
+    link: "/projects/healthsync",
+    techStack: [
+      "works/stack/react.svg",
+      "works/stack/node.svg",
+      "works/stack/postgres.svg",
     ],
   },
 ];

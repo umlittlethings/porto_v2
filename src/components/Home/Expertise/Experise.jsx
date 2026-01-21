@@ -53,15 +53,15 @@ function Expertise() {
 
   return (
     <div>
-      <div className="flex gap-8 px-50 py-10 pt-20">
+      <div className="flex flex-col md:flex-row gap-4 md:gap-8 px-7 md:px-50 py-10 pt-20">
         {/* 🔹 KIRI: Box Highlight */}
-        <div className="flex-shrink-0 sticky top-20 self-start flex flex-col items-center space-y-6 pr-20">
+        <div className="hidden md:flex flex-shrink-0 sticky top-20 self-start flex-col items-center space-y-6 pr-20">
           {boxImages.map((src, i) => (
             <motion.img
               key={i}
               src={src}
               alt=""
-              className="transition-all duration-500"
+              className="w-28 md:w-auto transition-all duration-500"
               animate={{
                 opacity: activeIndex === i ? 1 : 0.1,
                 scale: activeIndex === i ? 1.15 : 1,
@@ -81,15 +81,15 @@ function Expertise() {
             <motion.div
               key={i}
               ref={(el) => (sectionRefs.current[i] = el)}
-              initial={{ opacity: 0, y: 50 }}
+              initial={{ opacity: 0.5, y: 50 }}
               animate={
                 activeIndex === i
                   ? { opacity: 1, y: 0, scale: 1 }
-                  : { opacity: 0, y: 50, scale: 0.98 }
+                  : { opacity: 0.5, y: 0, scale: 1 }
               }
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="relative px-4 py-5 border-2 overflow-hidden max-w-130 rounded-2xl backdrop-blur-sm shadow-lg">
+              <div className="relative px-4 py-5 border-2 overflow-hidden w-full md:max-w-130 rounded-2xl backdrop-blur-sm shadow-lg">
                 {/* 🔸 Title unik */}
                 <img
                   className="h-auto object-contain relative z-10"
@@ -110,7 +110,7 @@ function Expertise() {
                 </div>
 
                 {/* 🔸 Text konten */}
-                <p className="relative z-20 mt-9 text-xl text-justify max-w-130 font-Jakarta-Medium leading-relaxed ">
+                <p className="relative z-20 mt-9 text-base md:text-xl text-justify max-w-full md:max-w-130 font-Jakarta-Medium leading-relaxed ">
                   {text}
                 </p>
               </div>
