@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
-import { ArrowLeft } from 'lucide-react'
+import { ArrowLeft, ArrowRight } from 'lucide-react'
 import { worksData } from '../data/worksData'
 
 function ProjectDetail() {
@@ -17,8 +17,11 @@ function ProjectDetail() {
     return () => clearTimeout(timer)
   }, [projectId])
 
-  // Find project by link (convert /projects/quizcypher to find matching project)
-  const project = worksData.find(proj => proj.link === `/projects/${projectId}`)
+  // Find project by link.route
+  const project = worksData.find(proj => {
+    const route = typeof proj.link === 'string' ? proj.link : proj.link?.route
+    return route === `/projects/${projectId}`
+  })
 
   if (!project) {
     return (
@@ -44,21 +47,19 @@ function ProjectDetail() {
 
       {/* Project Header Skeleton */}
       <div className="mb-12 md:mb-16 animate-pulse">
-        <div className="flex items-start gap-4 md:gap-8 mb-8">
-          <div className="w-16 h-16 bg-black/10 rounded flex-shrink-0"></div>
-          <div className="flex-1">
-            <div className="h-12 bg-black/10 rounded w-3/4 mb-4"></div>
-            <div className="h-6 bg-black/10 rounded w-1/3"></div>
-          </div>
+        <div className="mb-8">
+          <div className="h-12 bg-black/10 rounded w-3/4 mb-4"></div>
+          <div className="h-6 bg-black/10 rounded w-1/3"></div>
         </div>
       </div>
 
       {/* Project Description Skeleton */}
-      <div className="mb-12 md:mb-16 max-w-3xl animate-pulse">
-        <div className="space-y-3">
-          <div className="h-6 bg-black/10 rounded w-full"></div>
-          <div className="h-6 bg-black/10 rounded w-full"></div>
-          <div className="h-6 bg-black/10 rounded w-2/3"></div>
+      <div className="mb-12 md:mb-16 w-full animate-pulse">
+        <div className="space-y-6">
+          <div className="h-5 bg-black/10 rounded w-full"></div>
+          <div className="h-5 bg-black/10 rounded w-full"></div>
+          <div className="h-5 bg-black/10 rounded w-full"></div>
+          <div className="h-5 bg-black/10 rounded w-2/3"></div>
         </div>
       </div>
 
@@ -90,38 +91,55 @@ function ProjectDetail() {
 
       {/* Project Header */}
       <div className="mb-12 md:mb-16">
-        <div className="flex items-start gap-4 md:gap-8 mb-8">
-          <span className="text-3xl md:text-5xl font-bold text-black/30 flex-shrink-0">
-            {project.id}
-          </span>
-          <div>
-            <h1 className="font-Jakarta-Bold text-4xl md:text-5xl lg:text-6xl leading-tight font-extrabold mb-4">
-              {project.title}
-            </h1>
-            <p className="text-lg md:text-xl text-black/70">
-              {project.date}
-            </p>
-          </div>
+        <div className="mb-8">
+          <h1 className="font-Jakarta-Bold text-4xl md:text-5xl lg:text-6xl leading-tight font-extrabold mb-4">
+            {project.title}
+          </h1>
+          <p className="text-lg md:text-xl text-black/70">
+            {project.date}
+          </p>
         </div>
       </div>
 
-      {/* Project Main Image */}
+      {/* Project Main Image(s) - support single atau multiple images */}
       {project.mainImage && (
-        <div className="mb-12 md:mb-20 rounded-2xl overflow-hidden">
-          <img 
-            src={project.mainImage} 
-            alt={project.title}
-            className="w-full h-auto object-cover rounded-2xl shadow-lg"
-          />
+        <div className="mb-12 md:mb-20 space-y-6 md:space-y-8">
+          {(Array.isArray(project.mainImage) ? project.mainImage : [project.mainImage]).map((image, index) => (
+            <div key={index} className="rounded-2xl shadow-2xl">
+              <img 
+                src={image} 
+                alt={`${project.title} - Image ${index + 1}`}
+                className="w-full h-auto object-cover rounded-2xl"
+              />
+            </div>
+          ))}
         </div>
       )}
 
-      {/* Project Description */}
-      <div className="mb-12 md:mb-16 max-w-3xl">
-        <p className="text-lg md:text-2xl leading-relaxed text-justify font-Jakarta-Medium text-black/80">
-          {project.desc}
-        </p>
+      {/* Project Description - full width, paragraf terpisah */}
+      <div className="mb-12 md:mb-16 w-full">
+        <div className="space-y-6 text-lg md:text-xl leading-relaxed text-justify font-Jakarta-Medium text-black/80">
+          {(Array.isArray(project.desc) ? project.desc : [project.desc]).map((paragraph, i) => (
+            <p key={i} className="first:mt-0 last:mb-0">
+              {paragraph}
+            </p>
+          ))}
+        </div>
       </div>
+
+      {/* GitHub Link Button - di tengah (pakai field link.github) */}
+      {project.link && typeof project.link === 'object' && project.link.github && (
+        <div className="flex justify-center mb-12 md:mb-16">
+          <a
+            href={project.link.github}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 border-2 border-black rounded-full px-6 md:px-8 py-3 md:py-4 font-semibold text-base md:text-lg hover:bg-black hover:text-white transition-all duration-300"
+          >
+            Check it out <ArrowRight size={20} className="md:w-5 md:h-5" />
+          </a>
+        </div>
+      )}
 
       {/* Tech Stack */}
       <div className="mb-12 md:mb-16">

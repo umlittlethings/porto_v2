@@ -41,7 +41,7 @@ function Navbar() {
   return (
     <div className={`sticky top-0 z-50 bg-white/80 backdrop-blur-sm py-4 transition-opacity duration-500 ${isFooterVisible ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}>
       {/* Desktop Navbar */}
-      <nav className="hidden md:flex gap-40 justify-center text-xl">
+      <nav className="text-[#1929FE] font-bold font-Jakarta-Regular hidden md:flex gap-40 justify-center text-xl ">
         <button onClick={() => scrollToSection('about')} className="cursor-pointer hover:opacity-70 transition-opacity">About</button>
         <button onClick={() => scrollToSection('expertise')} className="cursor-pointer hover:opacity-70 transition-opacity">Services</button>
         <button onClick={() => scrollToSection('works')} className="cursor-pointer hover:opacity-70 transition-opacity">Works</button>
@@ -60,7 +60,7 @@ function Navbar() {
 
       {/* Mobile Menu Dropdown */}
       <div className={`md:hidden absolute top-full right-0 bg-white/95 backdrop-blur-sm border-b border-black/10 w-full transition-all duration-300 ease-in-out overflow-hidden ${isMobileMenuOpen ? 'opacity-100 max-h-96' : 'opacity-0 max-h-0 pointer-events-none'}`}>
-        <nav className="flex flex-col px-7 py-4 gap-4 text-lg">
+        <nav className="text-[#1929FE] font-bold font-Jakarta-Regular flex flex-col px-7 py-4 gap-4 text-lg">
           <button onClick={() => scrollToSection('about')} className="text-left cursor-pointer hover:opacity-70 transition-opacity py-2">About</button>
           <button onClick={() => scrollToSection('expertise')} className="text-left cursor-pointer hover:opacity-70 transition-opacity py-2">Services</button>
           <button onClick={() => scrollToSection('works')} className="text-left cursor-pointer hover:opacity-70 transition-opacity py-2">Works</button>

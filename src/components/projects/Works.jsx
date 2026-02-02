@@ -19,15 +19,15 @@ function Works() {
       />
 
       <div className="flex flex-col divide-y divide-black/10">
-        {recentProjects.map((proj) => (
+        {recentProjects.map((proj, index) => (
           <div
             key={proj.id}
             className="flex flex-col md:flex-row md:items-center md:justify-between py-6 md:py-10 gap-4 md:gap-8"
           >
-            {/* Nomor dan judul */}
+            {/* Nomor urut (01, 02, ...) sesuai urutan di list */}
             <div className="flex items-start gap-3 md:gap-8">
               <span className="text-sm md:text-lg font-semibold tracking-wider text-black/60 flex-shrink-0">
-                {proj.id}
+                {String(index + 1).padStart(2, '0')}
               </span>
               <div>
                 <h3 className="font-Jakarta-Bold text-2xl md:text-3xl lg:text-4xl leading-snug font-extrabold">
@@ -42,7 +42,7 @@ function Works() {
                 {proj.date}
               </span>
               <button
-                onClick={() => handleLearnMore(proj.link)}
+                onClick={() => handleLearnMore(typeof proj.link === 'string' ? proj.link : proj.link?.route)}
                 className="border-2 border-black rounded-full px-4 py-1.5 md:px-6 md:py-2.5 flex items-center gap-2 font-semibold text-base md:text-lg hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
               >
                 Learn More <ArrowRight size={18} className="md:w-5 md:h-5" />

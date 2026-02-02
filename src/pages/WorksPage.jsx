@@ -10,8 +10,11 @@ function WorksPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [displayedCount, setDisplayedCount] = useState(4)
   const [visibleItems, setVisibleItems] = useState(new Set())
+  const [selectedCategory, setSelectedCategory] = useState('All')
   const itemsPerPage = 4
   const itemRefs = useRef({})
+
+  const categories = ['All', ...Array.from(new Set(worksData.map((proj) => proj.category).filter(Boolean)))]
 
   // Simulate loading dengan useEffect
   useEffect(() => {
@@ -46,11 +49,15 @@ function WorksPage() {
     navigate(projectLink)
   }
 
-  // Filter projects berdasarkan search query
-  const filteredProjects = worksData.filter((proj) =>
-    proj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-    proj.desc.toLowerCase().includes(searchQuery.toLowerCase())
-  )
+  const filteredProjects = worksData.filter((proj) => {
+    const matchesCategory =
+      selectedCategory === 'All' || proj.category === selectedCategory
+    const descText = Array.isArray(proj.desc) ? proj.desc.join(' ') : proj.desc
+    const matchesSearch =
+      proj.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      descText.toLowerCase().includes(searchQuery.toLowerCase())
+    return matchesCategory && matchesSearch
+  })
 
   // Get displayed projects
   const displayedProjects = filteredProjects.slice(0, displayedCount)
@@ -104,6 +111,26 @@ function WorksPage() {
         />
       </div>
 
+      {/* Category Filters */}
+      <div className="mb-6 md:mb-8 flex flex-wrap gap-3">
+        {categories.map((category) => (
+          <button
+            key={category}
+            onClick={() => {
+              setSelectedCategory(category)
+              setDisplayedCount(4)
+            }}
+            className={`px-4 py-1.5 md:px-5 md:py-2 rounded-full border text-sm md:text-base font-semibold transition-all duration-200 ${
+              selectedCategory === category
+                ? 'bg-black text-white border-black'
+                : 'bg-white text-black border-black/30 hover:border-black'
+            }`}
+          >
+            {category}
+          </button>
+        ))}
+      </div>
+
       {/* Search Bar */}
       <div className="mb-12 md:mb-16">
         <div className="flex items-center gap-3 border-2 border-black rounded-full px-5 py-3 w-full">
@@ -142,10 +169,10 @@ function WorksPage() {
                 transition={{ duration: 0.5, delay: index * 0.1, ease: 'easeOut' }}
                 className="flex flex-col md:flex-row md:items-center md:justify-between py-6 md:py-10 gap-4 md:gap-8"
               >
-                {/* Nomor dan judul */}
+                {/* Nomor dan judul (nomor urut dari list, bukan id project) */}
                 <div className="flex items-start gap-3 md:gap-8">
                   <span className="text-sm md:text-lg font-semibold tracking-wider text-black/60 flex-shrink-0">
-                    {proj.id}
+                    {String(index + 1).padStart(2, '0')}
                   </span>
                   <div>
                     <h3 className="font-Jakarta-Bold text-2xl md:text-3xl lg:text-4xl leading-snug font-extrabold">
@@ -160,7 +187,7 @@ function WorksPage() {
                     {proj.date}
                   </span>
                   <button
-                    onClick={() => handleLearnMore(proj.link)}
+                    onClick={() => handleLearnMore(typeof proj.link === 'string' ? proj.link : proj.link?.route)}
                     className="border-2 border-black rounded-full px-4 py-1.5 md:px-6 md:py-2.5 flex items-center gap-2 font-semibold text-base md:text-lg hover:bg-black hover:text-white transition-all duration-300 whitespace-nowrap"
                   >
                     Learn More <ArrowRight size={18} className="md:w-5 md:h-5" />

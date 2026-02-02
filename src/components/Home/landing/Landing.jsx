@@ -48,9 +48,54 @@ function Landing(){
 
       <div className='absolute inset-0 z-20 sm:pt-190 pt-195 text-white sm:pl-15  sm:pr-300 text-right text-[9px] sm:text-[16px] place-items-center sm:place-items-start'>
         <div className='flex gap-2 py-4'>
-          <button><img src="/landing/GIT.svg" alt="" /></button>
-          <button><img src="/landing/IN.svg" alt="" /></button>
-          <button><img src="/landing/DC.svg" alt="" /></button>
+          <button>
+            <a 
+            href="https://github.com/umlittlethings" 
+            target="_blank"
+            rel="noopener noreferrer"
+            className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full
+              transition-all duration-300
+             hover:-translate-y-1 hover:rotate-6 hover:bg-black"
+            >
+              <span
+                className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
+                          transition-opacity duration-300 group-hover:opacity-100"
+              />
+              <img src="/landing/GIT.svg" alt="" />
+            </a>
+          </button>
+          <button>
+            <a 
+              href="https://www.linkedin.com/in/chrispradayana/" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full
+              transition-all duration-300
+              hover:-translate-y-1 hover:rotate-6 hover:bg-black"
+              >
+                <span
+                  className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
+                            transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <img src="/landing/IN.svg" alt="" />
+            </a>
+          </button>
+          <button>
+           <a 
+              href="https://discord.com/users/604938815030689794" 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative inline-flex h-12 w-12 items-center justify-center rounded-full
+              transition-all duration-300
+              hover:-translate-y-1 hover:rotate-6 hover:bg-black"
+              >
+                <span
+                  className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
+                            transition-opacity duration-300 group-hover:opacity-100"
+                />
+                <img src="/landing/DC.svg" alt="" />
+            </a>
+          </button>
         </div>
         <SeeMoreButton onClick={handleClick}>See My Resume</SeeMoreButton>
       </div>

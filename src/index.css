@@ -14,3 +14,11 @@
  --font-Jakarta-Regular: Jakarta-Regular, sans-serif;
  --font-Jakarta-Medium: Jakarta-Regular, sans-serif;
 }
+
+/* Semua elemen clickable pakai cursor pointer */
+a,
+button,
+[role="button"],
+[tabindex="0"]:not([tabindex="-1"]) {
+  cursor: pointer;
+}
