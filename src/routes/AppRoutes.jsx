@@ -21,8 +21,8 @@ function AppRoutes(){
             <Route element={<AppLayout />}>
                 <Route path="/" element={<Home />} />
                 <Route path="/works" element={<WorksPage />} />
-                <Route path="/projects/:projectId" element={<ProjectDetail />} />
-            </Route>
+                <Route path="/works/:projectId" element={<ProjectDetail />} />
+            </Route> 
         </Routes>
         </>
     );

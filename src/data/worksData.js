@@ -21,7 +21,7 @@ const worksDataRaw = [
     ],
     mainImage: "/works_detail/main/quizc.svg",
     link: {
-      route: "/projects/quizcypher",
+      route: "/works/quizcypher",
       github: "https://github.com/umlittlethings/Quizcipher", 
     },
     techStack: [
@@ -43,7 +43,7 @@ const worksDataRaw = [
     "Fun fact: This project was fully recreated and completed in 3 days 🚀"],
     mainImage: "/works_detail/main/td.svg",
     link: {
-      route: "/projects/temudataku",
+      route: "/works/temudataku",
       github: "https://github.com/umlittlethings/Temudataku_Reimagined", 
     },
     techStack: [
@@ -67,7 +67,7 @@ const worksDataRaw = [
     ],
     mainImage: "/works_detail/main/str.svg",
     link: {
-      route: "/projects/setaraapp",
+      route: "/works/setaraapp",
     },
     techStack: [
       "/works_detail/stack/Kotlin.svg",
@@ -89,7 +89,7 @@ const worksDataRaw = [
       "/works_detail/main/hd2.svg",
     ],
     link: {
-      route: "/projects/healthdetectwear",
+      route: "/works/healthdetectwear",
       
     },
     techStack: [
@@ -110,7 +110,7 @@ const worksDataRaw = [
       "/works_detail/main/ww.svg",
     ],
     link: {
-      route: "/projects/whiskerwise",
+      route: "/works/whiskerwise",
       github: "https://github.com/umlittlethings/WhiskerWise",
       
     },
@@ -135,7 +135,7 @@ const worksDataRaw = [
       "/works_detail/main/cs.svg",
     ],
     link: {
-      route: "/projects/calmspace",
+      route: "/works/calmspace",
       github: "https://github.com/pisjad/papb-calmspace",
       
     },
@@ -158,7 +158,7 @@ const worksDataRaw = [
       "/works_detail/main/si.svg",
     ],
     link: {
-      route: "/projects/sampahin",
+      route: "/works/sampahin",
       github: "https://sampahin-three.vercel.app/",
       
     },
@@ -181,7 +181,7 @@ const worksDataRaw = [
       "/works_detail/main/dl.svg",
     ],
     link: {
-      route: "/projects/dilan",
+      route: "/works/dilan",
       github: "https://www.figma.com/proto/0421q9KD5HTJ8ZjJbREfKQ/Dilan---Untitled?page-id=1%3A2&node-id=60-1288&node-type=frame&viewport=971%2C1375%2C0.2&t=abUYgTzZv8wb9Iuv-1&scaling=scale-down&content-scaling=fixed&starting-point-node-id=175%3A6281",
       
     },
@@ -203,7 +203,7 @@ const worksDataRaw = [
       "/works_detail/main/hdapi.svg",
     ],
     link: {
-      route: "/projects/HealthDetectAPI",
+      route: "/works/HealthDetectAPI",
       github: "https://github.com/umlittlethings/HealthDetect_api",
       
     },
@@ -224,7 +224,7 @@ const worksDataRaw = [
       "/works_detail/main/sph.svg",
     ],
     link: {
-      route: "/projects/SampahInAPI",
+      route: "/works/SampahInAPI",
       github: "https://github.com/umlittlethings/SampahIn_API",
       
     },
@@ -245,7 +245,7 @@ const worksDataRaw = [
       "/works_detail/main/gw.svg",
     ],
     link: {
-      route: "/projects/gaweapp",
+      route: "/works/gaweapp",
       github: "https://www.figma.com/proto/xqER2n4ih4Qlt5F0lYp0MN/Cuxion?page-id=0%3A1&node-id=8-1239&starting-point-node-id=8%3A1239&t=7XcpFLdAVfNMkyuD-1",
       
     },

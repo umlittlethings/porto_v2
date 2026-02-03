@@ -20,7 +20,7 @@ function ProjectDetail() {
   // Find project by link.route
   const project = worksData.find(proj => {
     const route = typeof proj.link === 'string' ? proj.link : proj.link?.route
-    return route === `/projects/${projectId}`
+    return route === `/works/${projectId}`
   })
 
   if (!project) {
