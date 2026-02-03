@@ -1,6 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import { worksData } from "../../data/worksData";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 
 function Works() {
   const navigate = useNavigate();
@@ -54,12 +54,12 @@ function Works() {
 
       {/* Tombol More Projects */}
       <div className="flex justify-center mt-8 md:mt-14">
-        <a
-          href="/works"
+        <Link
+          to="/works"
           className="border-2 border-black rounded-full px-6 md:px-8 py-2 md:py-3 flex items-center gap-2 font-semibold text-base md:text-lg hover:bg-black hover:text-white transition-all duration-300"
         >
           More Projects <ArrowRight size={20} />
-        </a>
+        </Link>
       </div>
     </section>
   );
