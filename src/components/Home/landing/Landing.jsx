@@ -46,8 +46,8 @@ function Landing(){
         </h1>
       </div>
 
-      <div className='absolute inset-0 z-20 sm:pt-190 pt-175 text-white sm:pl-15  sm:pr-300 text-right text-[9px] sm:text-[16px] place-items-center sm:place-items-start'>
-        <div className='flex gap-2 py-4'>
+      <div className='absolute inset-0 z-20 sm:pt-190 pt-175 text-white sm:pl-15 sm:pr-300 text-center sm:text-right text-[9px] sm:text-[16px] flex flex-col items-center sm:items-start'>
+        <div className='flex gap-2 py-4 justify-center'>
           <button>
             <a 
             href="https://github.com/umlittlethings" 
@@ -61,7 +61,7 @@ function Landing(){
                 className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
                           transition-opacity duration-300 group-hover:opacity-100"
               />
-              <img src="/landing/GIT.svg" alt="" />
+              <img src="/landing/GIT.svg" alt="GitHub" />
             </a>
           </button>
           <button>
@@ -77,7 +77,7 @@ function Landing(){
                   className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
                             transition-opacity duration-300 group-hover:opacity-100"
                 />
-                <img src="/landing/IN.svg" alt="" />
+                <img src="/landing/IN.svg" alt="LinkedIn" />
             </a>
           </button>
           <button>
@@ -93,11 +93,13 @@ function Landing(){
                   className="absolute inset-0 rounded-full bg-white/10 blur-md opacity-0
                             transition-opacity duration-300 group-hover:opacity-100"
                 />
-                <img src="/landing/DC.svg" alt="" />
+                <img src="/landing/DC.svg" alt="Discord" />
             </a>
           </button>
         </div>
-        <SeeMoreButton onClick={handleClick}>See My Resume</SeeMoreButton>
+        <div className='mt-2'>
+          <SeeMoreButton onClick={handleClick}>See My Resume</SeeMoreButton>
+        </div>
       </div>
       
     </div>

@@ -4,7 +4,7 @@ import { useNavigate, Link } from "react-router-dom";
 
 function Works() {
   const navigate = useNavigate();
-  const recentProjects = worksData.slice(0, 4); // tampilkan 4 project terbaru
+  const recentProjects = worksData.slice(0, 4); 
 
   const handleLearnMore = (projectLink) => {
     navigate(projectLink);
@@ -13,7 +13,7 @@ function Works() {
   return (
     <section className="px-7 md:px-30 py-10 md:py-24">
       <img
-        className="place-self-center mb-8 md:mb-16 w-[150px] md:w-[220px] lg:w-[280px]"
+        className="block mx-auto mb-8 md:mb-16 w-[150px] md:w-[220px] lg:w-[280px]"
         src="works/works.svg"
         alt="works"
       />
