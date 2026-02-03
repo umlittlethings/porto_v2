@@ -1,8 +1,10 @@
 function Before() {
-  return <div>
-    <img className="place-self-center hidden md:block" src="before footer/befoot.svg" alt="" />
-    <img className="place-self-center md:hidden pb-10 w-90" src="before footer/befoot_mobile.svg" alt="" />
-  </div>;
+  return (
+    <div className="flex justify-center">
+      <img className="hidden md:block mx-auto" src="before footer/befoot.svg" alt="Before footer" />
+      <img className="md:hidden pb-10 w-90 mx-auto" src="before footer/befoot_mobile.svg" alt="Before footer mobile" />
+    </div>
+  );
 }
 
 export default Before;
