@@ -1,4 +1,4 @@
-import { Boxes, Sparkles, BarChart3 } from 'lucide-react'
+import { Boxes, Sparkles, BarChart3, Bot, TerminalSquare } from 'lucide-react'
 
 export const sandboxData = [
   {
@@ -27,5 +27,38 @@ export const sandboxData = [
     route: '/sandbox/algorithm',
     icon: BarChart3,
     accent: '#059669',
+  },
+  {
+    id: 'bot-maker',
+    title: 'Bot Maker',
+    desc: 'Visual interface to create and configure chatbots and automated responders.',
+    tags: ['AI', 'Automation', 'Chat'],
+    route: '#',
+    icon: Bot,
+    accent: '#F59E0B',
+    status: 'coming_soon',
+    effect: 'police_line',
+  },
+  {
+    id: 'js-base-coder',
+    title: 'JS Base Coder',
+    desc: 'Interactive sandbox for practicing core JavaScript concepts with live execution.',
+    tags: ['JavaScript', 'Playground', 'Coding'],
+    route: '#',
+    icon: TerminalSquare,
+    accent: '#3B82F6',
+    status: 'coming_soon',
+    effect: 'cage',
+  },
+  {
+    id: 'mystery-box',
+    title: '???',
+    desc: 'Unknown anomaly detected.',
+    tags: ['Unknown', 'Void'],
+    route: '#',
+    icon: Sparkles,
+    accent: '#A855F7',
+    status: 'blackhole',
+    effect: 'blackhole',
   },
 ]
