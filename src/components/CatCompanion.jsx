@@ -1,10 +1,13 @@
 import { useState } from 'react'
 import { motion } from 'framer-motion'
+import { useLocation } from 'react-router-dom'
 import { catReactionWords } from '../data/catReactions'
 
 function CatCompanion() {
   const [isShocked, setIsShocked] = useState(false)
   const [bubbleText, setBubbleText] = useState(null)
+  const location = useLocation()
+  const isSandbox = location.pathname.startsWith('/sandbox')
 
   const handleClick = () => {
     setIsShocked(true)
@@ -196,6 +199,30 @@ function CatCompanion() {
             <line x1="82" y1="42" x2="68" y2="42" stroke="#000000" strokeWidth="0.8" strokeLinecap="round" />
             <line x1="82" y1="46" x2="68" y2="48" stroke="#000000" strokeWidth="0.8" strokeLinecap="round" />
           </motion.g>
+
+          {/* Lab goggles - only on sandbox pages */}
+          {isSandbox && (
+            <g>
+              {/* Strap */}
+              <path
+                d="M 30 32 Q 55 26 80 32"
+                fill="none"
+                stroke="#374151"
+                strokeWidth="2.5"
+                strokeLinecap="round"
+              />
+              {/* Left lens */}
+              <ellipse cx="45" cy="34" rx="9" ry="7" fill="#dbeafe" fillOpacity="0.7" stroke="#1929FE" strokeWidth="2" />
+              {/* Right lens */}
+              <ellipse cx="65" cy="34" rx="9" ry="7" fill="#dbeafe" fillOpacity="0.7" stroke="#1929FE" strokeWidth="2" />
+              {/* Bridge */}
+              <path d="M 54 34 L 56 34" stroke="#374151" strokeWidth="2" strokeLinecap="round" />
+              {/* Lens shine */}
+              <ellipse cx="42" cy="31" rx="3" ry="2" fill="white" fillOpacity="0.5" />
+              <ellipse cx="62" cy="31" rx="3" ry="2" fill="white" fillOpacity="0.5" />
+            </g>
+          )}
+
         </svg>
       </motion.div>
     </motion.div>
