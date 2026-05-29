@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { ArrowLeft, ArrowRight } from 'lucide-react'
-import { motion } from 'framer-motion'
+import { motion, AnimatePresence } from 'framer-motion'
 import { useNavigate } from 'react-router-dom'
 import { sandboxData } from '../data/sandboxData'
 import ElectricBackground from '../components/sandbox/ElectricBackground'
@@ -10,6 +10,14 @@ function SandboxPage() {
 
   const [autoIndex, setAutoIndex] = useState(0)
   const [hoverIndex, setHoverIndex] = useState(null)
+  const [showLoader, setShowLoader] = useState(true)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowLoader(false)
+    }, 2500)
+    return () => clearTimeout(timer)
+  }, [])
 
   useEffect(() => {
     if (hoverIndex !== null) return
@@ -21,6 +29,52 @@ function SandboxPage() {
 
   return (
     <section className="relative min-h-screen overflow-hidden bg-[#0a0a0f] flex flex-col">
+      {/* Full-screen Loader */}
+      <AnimatePresence>
+        {showLoader && (
+          <motion.div
+            key="sandbox-loader"
+            initial={{ opacity: 1 }}
+            exit={{ opacity: 0, y: "-100%" }}
+            transition={{ duration: 0.8, ease: [0.76, 0, 0.24, 1] }}
+            className="fixed inset-0 z-50 flex flex-col items-center justify-center bg-[#0a0a0f]"
+          >
+            {/* Loader Grid Background */}
+            <div
+              className="absolute inset-0 pointer-events-none"
+              style={{
+                backgroundImage: `
+                  linear-gradient(rgba(57, 255, 20, 0.4) 1px, transparent 1px),
+                  linear-gradient(90deg, rgba(57, 255, 20, 0.4) 1px, transparent 1px)
+                `,
+                backgroundSize: '50px 50px',
+                backgroundPosition: 'center center'
+              }}
+            />
+            {/* Vignette effect so text stays readable */}
+            <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(ellipse_at_center,_transparent_10%,_rgba(10,10,15,0.95)_100%)]" />
+
+            <motion.p
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.2, ease: 'easeOut' }}
+              className="relative z-10 uppercase tracking-[0.4em] text-sm md:text-base text-[#39FF14] mb-4 font-Jakarta-Medium"
+            >
+              // welcome user
+            </motion.p>
+            <motion.h1
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.8, delay: 0.5, ease: 'easeOut' }}
+              className="relative z-10 font-Jakarta-Bold font-extrabold leading-none text-[16vw] md:text-[11vw] lg:text-[9rem] text-white
+                         drop-shadow-[0_0_30px_rgba(57,255,20,0.3)]"
+            >
+              [sandbox]
+            </motion.h1>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
       {/* Electric animated background */}
       <ElectricBackground color="#1929FE" secondaryColor="#39FF14" density={1} />
 
