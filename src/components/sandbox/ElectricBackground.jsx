@@ -51,8 +51,8 @@ function ElectricBackground({ color = '#1929FE', secondaryColor = '#39FF14', den
         const baseY = y1 + dy * t
         const perpX = -dy / len
         const perpY = dx / len
-        // Aggressive offset for tight zigzag
-        const offset = (Math.random() - 0.5) * len * 0.22
+        // Aggressive offset for tight zigzag — scaled for mobile
+        const offset = (Math.random() - 0.5) * len * 0.22 * scaleFactor
         points.push({
           x: baseX + perpX * offset,
           y: baseY + perpY * offset,
@@ -68,7 +68,7 @@ function ElectricBackground({ color = '#1929FE', secondaryColor = '#39FF14', den
       for (let b = 0; b < branchCount; b++) {
         const idx = 1 + Math.floor(Math.random() * (points.length - 2))
         const origin = points[idx]
-        const branchLen = boltLen * (0.12 + Math.random() * 0.22)
+        const branchLen = boltLen * (0.12 + Math.random() * 0.22) * scaleFactor
         const angle = Math.random() * Math.PI * 2
         const endX = origin.x + Math.cos(angle) * branchLen
         const endY = origin.y + Math.sin(angle) * branchLen
@@ -82,6 +82,10 @@ function ElectricBackground({ color = '#1929FE', secondaryColor = '#39FF14', den
     const activeBolts = []
 
     // --- Impact flash ---
+    // Scale factor for mobile — reduce thickness and jitter
+    const isMobile = width < 768
+    const scaleFactor = isMobile ? 0.25 : 1
+
     let flashAlpha = 0
 
     function spawnBolt() {
@@ -100,11 +104,9 @@ function ElectricBackground({ color = '#1929FE', secondaryColor = '#39FF14', den
         startX, startY, endX, endY,
         boltLen,
         color: boltColor,
-        // Slower: bolt lives 25-50 frames
         framesLeft: 25 + Math.floor(Math.random() * 25),
         totalFrames: 0,
-        // THICK
-        thickness: 8 + Math.random() * 7,
+        thickness: (8 + Math.random() * 7) * scaleFactor,
         points: [],
         branches: [],
       })
